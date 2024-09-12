@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+About
+{% endblock title %}
+
+
+
+{% block main--content %}
+<div class="container my-5">
+  <div class="row">
+    <h3>Welcome: <span class="text-capitalize">{{request.user}}</span></h3>
+  
+  <div class="col-sm-2 border-end">
+    <ul class="list-unstyled">
+      <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
+      <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Profile View</a></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-9 offset-sm-1">
+    <div class="row">
+    {% for ad in add %}
+      <div class="co-sm-6">
+        <div class="card m-2">
+          <img src="/media/{{ad.student_img}}" class="card-img-top" />
+          <div class="card-body">
+            <p>Name: {{ad.name}}</p>
+            <p>University Name: {{ad.university_name}}</p>
+            <p>Department: {{ad.department}}</p>
+            <p>Batch: {{ad.batch}}</p>
+            <p>Roll: {{ad.roll}}</p>
+            <p>Address: {{ad.address}}</p>
+            <p>Phone: {{ad.phone}}</p>
+            <p class="text-center"><a href="{% url 'updateaddress' pk=ad.id %}" class="btn btn-success" type="button">Update</a></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+      
+
+  </div>
+</div>
+</div>
+</div>
+{% endblock main--content %}

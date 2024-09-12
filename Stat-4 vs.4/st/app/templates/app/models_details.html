@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+{{ model.title }}
+{% endblock title %}
+
+{% block main--content %}
+<main>
+  <div class="model-details-page">
+    <div class="model-details-container">
+      <div class="model-details-header">
+        <h1>{{ model.title }}</h1>
+        <img class="model-details-img" src="{{ model.image.url }}" alt="{{ model.title }}" />
+      </div>
+      <div class="model-details-content">
+        <p>{{ model.description }}</p>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main--content %}

@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+Upload PDF
+{% endblock title %}
+
+
+{% block main--content %}
+<main>
+  <h1>Upload PDF</h1>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Upload</button>
+  </form>
+  <a href="{% url 'pdf_list' %}">View Uploaded PDFs</a>
+</main>
+{% endblock main--content %}

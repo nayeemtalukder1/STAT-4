@@ -1,0 +1,40 @@
+<!-- search_results.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <!-- app/templates/app/search_results.html -->
+
+{% if query %}
+<h2>Search Results for "{{ query }}"</h2>
+
+<h3>Blog Posts</h3>
+<ul>
+    {% for blog_post in blog_results %}
+        <li>{{ blog_post.title }}</li>
+        <!-- Display other fields as needed -->
+    {% empty %}
+        <li>No blog posts found.</li>
+    {% endfor %}
+</ul>
+
+<h3>PDF Documents</h3>
+<ul>
+    {% for pdf_doc in pdf_results %}
+        <li>{{ pdf_doc.title }}</li>
+        <!-- Display other fields as needed -->
+    {% empty %}
+        <li>No PDF documents found.</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No search query provided.</p>
+{% endif %}
+
+</body>
+</html>

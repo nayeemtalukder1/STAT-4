@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %}Regestation{% endblock title %}
+
+
+{% block main--content %}
+<main>
+  <div class="gallery_containers">
+    
+    {% for n in image %}
+    <div class="gallery_container">
+      <div class="gallery">
+        <a target="_blank" href="{{ n.gallery_img.url }}">
+          <img src="{{ n.gallery_img.url }}" alt="" width="600" height="400" />
+        </a>
+        <div class="dec">Added by: {{n.user}}</div>
+      </div>
+      
+    </div>
+    {% endfor %}
+    <br />
+  </div>
+</main>
+
+{% endblock main--content %}

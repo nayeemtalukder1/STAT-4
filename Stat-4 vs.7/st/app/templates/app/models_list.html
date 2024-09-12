@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+Models List
+{% endblock title %}
+
+{% block main--content %}
+<main class="container mt-4">
+  <div class="models-page">
+    <div class="row models-items-container">
+      <div class="col-12 mb-4">
+        <a href="{% url 'add_numbers' %}" class="link-style text-decoration-none">
+          <div class="card h-100">
+            <div class="row no-gutters">
+              <div class="col-lg-4">
+                <img class="card-img" src="{% static 'app/img/111.jpg' %}" alt="mean media mode" />
+              </div>
+              <div class="col-lg-8">
+                <div class="card-body">
+                  <h5 class="card-title">Mean Media Mode</h5>
+                  <div class="model_details">
+                    <p><strong>Mean:</strong> The mean is the average of a set of numbers. It is calculated by summing all values in the set and dividing the sum by the number of values.</p>
+                    <p><strong>Median:</strong> The median is the middle value in a sorted list of numbers. If the list has an odd number of values, the median is the middle number. If it has an even number, the median is the average of the two middle numbers.</p>
+                    <p><strong>Mode:</strong> The mode is the number that appears most frequently in a dataset. A dataset may have one mode (unimodal), more than one mode (multimodal), or no mode if all numbers occur with equal frequency.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main--content %}

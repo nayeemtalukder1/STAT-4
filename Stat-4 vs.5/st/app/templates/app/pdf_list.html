@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+Upload PDF
+{% endblock title %}
+
+
+{% block main--content %}
+<main>
+  <h1>Uploaded PDFs</h1>
+    <ul>
+        {% for pdf in pdfs %}
+        <li>
+            <a href="{% url 'download_pdf' pdf.id %}">{{ pdf.document.name }}</a>
+        </li>
+        {% empty %}
+        <li>No approved PDFs available. Please wait for approval.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_pdf' %}">Upload More PDFs</a>
+</main>
+{% endblock main--content %}

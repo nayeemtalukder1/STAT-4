@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+Models List
+{% endblock title %}
+
+{% block main--content %}
+<main>
+  <div class="models-page">
+    <div class="models-items-container">
+      <a href="{% url 'add_numbers' %}" class="link-style">
+        <div class="model-item-container">
+          <div class="item-left-part">
+            <img class="model-item-img" src="{% static 'app/img/111.jpg' %}" alt="mean media mode" />
+          </div>
+          <div class="item-middle-part">
+            <div class="company">Mean Media Mode</div>
+            <div class="model_details">
+              {{ model.description|truncatewords:30 }}
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</main>
+{% endblock main--content %}

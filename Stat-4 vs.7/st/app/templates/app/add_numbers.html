@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+Add number
+{% endblock title %}
+
+{% block main--content %}
+<main class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Add Numbers</h1>
+            <form method="post" action="{% url 'add_numbers' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="data" class="form-label">Numbers (comma-separated):</label>
+                    <input type="text" id="data" name="data" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+            <a href="{% url 'list_numbers' %}" class="btn btn-link mt-3">Show result</a>
+        </div>
+    </div>
+</main>
+{% endblock main--content %}

@@ -1,0 +1,38 @@
+<!-- pdf_list.html -->
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+Uploaded PDFs
+{% endblock title %}
+
+{% block main--content %}
+<main>
+  <h1>Uploaded PDFs</h1>
+  <div class="container">
+    <div class="row">
+      {% for pdf in pdfs %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ pdf.title }}</h5>
+            <p class="card-text">
+              Uploaded on: {{ pdf.uploaded_at|date:"Y-m-d H:i" }}
+            </p>
+            <p class="card-text">
+                Uploaded by: {{ pdf.user }}
+              </p>
+            <a href="{% url 'download_pdf' pdf.id %}" class="btn btn-primary">Download</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12">
+        <p>No approved PDFs available. Please wait for approval.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <a href="{% url 'upload_pdf' %}" class="btn btn-secondary mt-3">Upload More PDFs</a>
+</main>
+{% endblock main--content %}

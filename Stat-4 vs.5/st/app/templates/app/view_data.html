@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+About
+{% endblock title %}
+
+
+{% block main--content %}
+<main>
+  <h1>Data Visualization</h1>
+  <canvas id="pieChart"></canvas>
+  <canvas id="barChart"></canvas>
+  <canvas id="histogramChart"></canvas>
+</main>
+<script>
+  var labels = {{ labels|safe }};
+  var values = {{ values|safe }};
+
+  var mergedLabels = [].concat.apply([], labels);
+  var mergedValues = [].concat.apply([], values);
+
+  var ctxPie = document.getElementById('pieChart').getContext('2d');
+  new Chart(ctxPie, {
+      type: 'pie',
+      data: {
+          labels: mergedLabels,
+          datasets: [{
+              data: mergedValues,
+              backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange', 'purple']
+          }]
+      }
+  });
+
+  var ctxBar = document.getElementById('barChart').getContext('2d');
+  new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+          labels: mergedLabels,
+          datasets: [{
+              label: 'Data Points',
+              data: mergedValues,
+              backgroundColor: 'blue'
+          }]
+      }
+  });
+
+  var ctxHistogram = document.getElementById('histogramChart').getContext('2d');
+  new Chart(ctxHistogram, {
+      type: 'bar',
+      data: {
+          labels: mergedLabels,
+          datasets: [{
+              label: 'Data Points',
+              data: mergedValues,
+              backgroundColor: 'green'
+          }]
+      },
+      options: {
+          scales: {
+              x: { beginAtZero: true },
+              y: { beginAtZero: true }
+          }
+      }
+  });
+</script>
+<a href="{% url 'add_data' %}">Add More Data</a>
+{% endblock main--content %}

@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+Add number
+{% endblock title %}
+
+{% block main--content %}
+<main class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Number Arrays</h1>
+      <ul class="list-group list-group-flush">
+          {% for array in arrays %}
+              <li class="list-group-item">
+                  <a href="{% url 'view_numbers' array.id %}">{{ array.name }}</a>
+              </li>
+          {% endfor %}
+      </ul>
+      <div class="pagination mt-3">
+          <span class="step-links">
+              {% if arrays.has_previous %}
+                  <a href="?page=1" class="btn btn-secondary">&laquo; first</a>
+                  <a href="?page={{ arrays.previous_page_number }}" class="btn btn-secondary">previous</a>
+              {% endif %}
+
+              <span class="current">
+                  Page {{ arrays.number }} of {{ arrays.paginator.num_pages }}.
+              </span>
+
+              {% if arrays.has_next %}
+                  <a href="?page={{ arrays.next_page_number }}" class="btn btn-secondary">next</a>
+                  <a href="?page={{ arrays.paginator.num_pages }}" class="btn btn-secondary">last &raquo;</a>
+              {% endif %}
+          </span>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main--content %}

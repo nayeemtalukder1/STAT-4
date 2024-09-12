@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block main--content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Blog</h1>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.excerpt }}</p>
+                    <a href="{% url 'blog_detail' post.slug %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

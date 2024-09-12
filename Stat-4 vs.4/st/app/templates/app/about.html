@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+
+{% block title %}
+About
+{% endblock title %}
+
+
+{% block main--content %}
+<main>
+  <div class="container d-flex flex-wrap justify-content-between">
+    <div class="container-left">
+      <div class="profile_card">
+        <img src="{% static 'app/img/nayeem.JPG' %}" style="width: 100%" />
+        <h1>Nayeem Talukder</h1>
+        <p class="title">Made this website</p>
+        <p>Jatiya kabi kazi nazrul islam university</p>
+        <p>Statistics</p>
+        <div style="margin: 24px 0">
+          <a class="contact_link" href=""
+            ><i class="bi bi-browser-chrome"></i>
+          <a class="contact_link" href=""><i class="bi bi-twitter-x"></i></a>
+          <a class="contact_link" href=""><i class="bi bi-linkedin"></i></a>
+          <a class="contact_link" href=""><i class="bi bi-facebook"></i></a>
+        </div>
+        <p><button class="contact_button">Contact</button></p>
+      </div>
+    </div>
+
+    <div class="container-right">
+      <div class="profile_card1">
+        <img src="{% static 'app/img/nayeem.JPG' %}" style="width: 100%" />
+        <h1>Nayeem Talukder</h1>
+        <p class="title">Made this website</p>
+        <p>Jatiya kabi kazi nazrul islam university</p>
+        <p>Statistics</p>
+        <div style="margin: 24px 0">
+          <a class="contact_link" href=""
+            ><i class="bi bi-browser-chrome"></i>
+          <a class="contact_link" href=""><i class="bi bi-twitter-x"></i></a>
+          <a class="contact_link" href=""><i class="bi bi-linkedin"></i></a>
+          <a class="contact_link" href=""><i class="bi bi-facebook"></i></a>
+        </div>
+        <p><button class="contact_button">Contact</button></p>
+      </div>
+    </div>
+    </div>
+</main>
+{% endblock main--content %}

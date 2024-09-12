@@ -1,0 +1,16 @@
+<!-- blog_create.html -->
+
+{% extends 'app/base.html' %}
+
+{% block title %}Create Blog{% endblock %}
+
+{% block main--content %}
+<div class="container mt-5">
+    <h1>Create Blog Post</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
